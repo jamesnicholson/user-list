@@ -1,5 +1,6 @@
 import { createContext , useReducer, useEffect } from "react";
-import reducer from './reducer'
+import reducer from '../reducers'
+import ThemeContext from '../context/theme'
 import { FETCH_USERS } from '../utils/enums'
 
 const initialState = {
@@ -9,7 +10,6 @@ const GlobalContext = createContext(initialState);
 
 export const GlobalContextProvider = props => {
     const [state, dispatch] = useReducer(reducer, initialState);
-
     useEffect(() => {
       fetch("https://jsonplaceholder.typicode.com/users")
       .then(x => x.json())
@@ -26,11 +26,10 @@ export const GlobalContextProvider = props => {
   
     return (
       <GlobalContext.Provider value={[state, dispatch]}>
-        {props.children}
+        <ThemeContext>
+          {props.children}
+        </ThemeContext>
       </GlobalContext.Provider>
     );
-  };
-
-
-
+};
 export default GlobalContext;
