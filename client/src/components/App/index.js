@@ -1,14 +1,17 @@
 
 import React from 'react'
 import styled from 'styled-components'
+import  Users  from '../Users'
 import { title } from '../../styles'
+
+const Title = styled.h1`
+  ${title}
+`
 function App() {
-  const Title = styled.h1`
-    ${title}
-  `
   return (
     <div className="App">
         <Title>Hello World</Title>
+        <Users />
     </div>
   );
 }
