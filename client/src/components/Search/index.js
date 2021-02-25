@@ -1,8 +1,8 @@
-
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import GlobalContext from '../../context'
 import { search, searchBar } from '../../styles'
+import { SET_SEARCH_TERM } from '../../utils/enums'
 
 const SearchWrapper = styled.div`
   ${search}
@@ -18,8 +18,17 @@ function useInput(){
 
 function Search() {
     const [value, input] = useInput();
-    const [state, actions] = useContext(GlobalContext);
+    const [state, dispatch] = useContext(GlobalContext);
     const { users } = state;
+    useEffect(() => {
+        dispatch({
+            type: SET_SEARCH_TERM,
+              payload: {
+                searchTerm: value,
+              }
+          });
+    },[value])
+
     return <SearchWrapper>{input}</SearchWrapper>;
 }
 export default Search;

@@ -4,7 +4,8 @@ import ThemeContext from '../context/theme'
 import { FETCH_USERS } from '../utils/enums'
 
 const initialState = {
-    users: []
+  searchTerm:"",
+  users: []
 }
 const GlobalContext = createContext(initialState);
 
