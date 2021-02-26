@@ -27,7 +27,7 @@ const randomMaps = () => {
 
 function Address(props) {
   const { address } = props;
-  let url = `https://maps.googleapis.com/maps/api/staticmap?center=${randomMaps()}&zoom=15&size=150x150&key=AIzaSyA6KcBbwAu54ljZDCDLUd7qHnz7n9qFo-o`;
+  let url = `https://maps.googleapis.com/maps/api/staticmap?center=${randomMaps()}&zoom=15&size=150x150&key=AIzaSyCKVACXloz0J67sv0-MBoSg61gZBDZmZWc`;
   return (
     <AddressAndMap>
       <MapImg src={url} />
