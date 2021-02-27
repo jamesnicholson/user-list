@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import GlobalContext from '../../context'
-import User from './User'
-import { useSearch } from '../../utils/hooks'
+import { useSearch } from '../../hooks'
 import { SET_USER_COUNT } from '../../utils/enums'
+import User from './User'
 
 function Users() {
   const [state, dispatch] = useContext(GlobalContext);

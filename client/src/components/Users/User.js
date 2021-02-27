@@ -1,4 +1,3 @@
-
 import React from 'react'
 import styled from 'styled-components'
 import { card, cardTitle, cardItem, userDetails, cardConent } from '../../styles'
@@ -39,5 +38,4 @@ function User(props) {
       </Card> 
   );
 }
-
 export default User;

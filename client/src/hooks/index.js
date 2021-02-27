@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef} from 'react'
 import styled from 'styled-components'
 import { searchBar } from '../styles'
-import { ALPHANUMERIC_ONLY } from './enums'
+import { ALPHANUMERIC_ONLY } from '../utils/enums'
 
 const SearchBar = styled.input`
   ${searchBar}

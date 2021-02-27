@@ -1,10 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import GlobalContext from '../../context'
+import { useInput, useKeypress } from '../../hooks'
 import { search, userCount } from '../../styles'
-import { SET_SEARCH_TERM } from '../../utils/enums'
-import { useInput, useKeypress } from '../../utils/hooks'
-import { ALPHANUMERIC_ONLY  } from '../../utils/enums'
+import { SET_SEARCH_TERM, ALPHANUMERIC_ONLY } from '../../utils/enums'
 
 const SearchWrapper = styled.div`
   ${search}

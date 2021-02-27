@@ -4,7 +4,7 @@ import ThemeContext from '../context/theme'
 import { FETCH_USERS, SET_USER_COUNT} from '../utils/enums'
 
 const initialState = {
-  searchTerm:"",
+  searchTerm: "",
   users: [],
   userCount: 0
 }

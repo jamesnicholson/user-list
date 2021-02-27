@@ -1,9 +1,9 @@
 
 import React from 'react'
 import styled from 'styled-components'
+import { title } from '../../styles'
 import  Users  from '../Users'
 import  Search  from '../Search'
-import { title } from '../../styles'
 
 const Title = styled.h1`
   ${title}

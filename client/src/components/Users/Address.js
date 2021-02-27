@@ -1,11 +1,6 @@
-/*
-  TO NOTE!
-  It appears that the location data from the api is a bit too random to display nice.
-  so im using a static map
- */
 import React from 'react'
 import styled from 'styled-components'
-import { map, userAddress, addressItem, userAddressMap} from '../../styles'
+import { map, userAddress, addressItem, userAddressMap } from '../../styles'
 
 const MapImg = styled.img`
   ${map}
@@ -36,3 +31,8 @@ function Address(props) {
     );
 }
 export default Address;
+/*
+  TO NOTE!
+  It appears that the location data from the api is a bit too random to display nice.
+  so im using a static map
+ */

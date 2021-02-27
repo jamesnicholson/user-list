@@ -5,21 +5,21 @@ const fetchUsers = (payload, state) => {
         ...state,
        ...payload
     };
-}
+};
 
 const setSearchTerm = (payload, state) => {
     return {
         ...state,
         searchTerm: payload.searchTerm
     };
-}
+};
 
 const setUserCount = (payload, state) => {
     return {
         ...state,
         userCount: payload.userCount
     };
-}
+};
 
 const reducer = (state, action) => {
     switch(action.type){
@@ -31,6 +31,6 @@ const reducer = (state, action) => {
                 return setUserCount(action.payload, state)
         default : 
            return state;
-    }
-}
-export default reducer
+    };
+};
+export default reducer;
