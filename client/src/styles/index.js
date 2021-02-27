@@ -5,6 +5,7 @@ const style = {
   secondaryColor: 'white',
   borderColor: '#5d5d5d60',
   backgroundColor: 'aliceblue',
+  smallFontSize: '0.8em',
   normalFontSize: '1em',
   largeFontSize: '1.5em',
   extraLargeFontSize: '2em',
@@ -71,7 +72,6 @@ export const userDetails = css`
   justify-content: space-evenly;
 `
 export const search = css`
-  padding: 10px;
   margin: 10px auto;
   width: 100%;
   max-width: 600px;
@@ -86,5 +86,9 @@ export const searchBar = css`
     width: 90%;
     left: 0px;
   }
+`
+export const userCount = css`
+  font-size: ${style.smallFontSize};
+  padding: 5px 0;
 `
 export default style

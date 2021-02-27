@@ -1,7 +1,7 @@
 /*
   TO NOTE!
   It appears that the location data from the api is a bit too random to display nice.
-  So im creating a radmon list of nice streets
+  so im using a static map
  */
 import React from 'react'
 import styled from 'styled-components'

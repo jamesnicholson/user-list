@@ -1,17 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import GlobalContext from '../../context'
-import { search } from '../../styles'
+import { search, userCount } from '../../styles'
 import { SET_SEARCH_TERM } from '../../utils/enums'
-import { useInput } from '../../utils/hooks'
+import { useInput, useKeypress } from '../../utils/hooks'
+import { ALPHANUMERIC_ONLY  } from '../../utils/enums'
 
 const SearchWrapper = styled.div`
   ${search}
 `
+const UserCount = styled.div`
+  ${userCount}
+`
 function Search() {
-    const [value, input] = useInput();
+    const [value, input, inputRef] = useInput();
     const [state, dispatch] = useContext(GlobalContext);
     const { userCount } = state;
+
     useEffect(() => {
         dispatch({
             type: SET_SEARCH_TERM,
@@ -21,9 +26,13 @@ function Search() {
           });
     },[value])
 
+    useKeypress(ALPHANUMERIC_ONLY, () => {
+      inputRef.current.focus()
+    });
+
     return  <SearchWrapper>
               {input}
-              <div>Results: { userCount }</div>
+              <UserCount>Results: { userCount }</UserCount>
             </SearchWrapper>;
 }
 export default Search;

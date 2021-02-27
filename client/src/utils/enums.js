@@ -1,3 +1,4 @@
 export const FETCH_USERS = 'FETCH_USERS';
 export const SET_SEARCH_TERM = 'SET_SEARCH_TERM';
 export const SET_USER_COUNT = 'SET_USER_COUNT';
+export const ALPHANUMERIC_ONLY = 'ALPHANUMERIC_ONLY';

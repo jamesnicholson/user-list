@@ -21,6 +21,7 @@ const CardItem = styled.div`
 `
 function User(props) {
   const { user } = props;
+
   return (
       <Card>
         <CardConent>
