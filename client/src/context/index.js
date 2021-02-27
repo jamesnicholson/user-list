@@ -1,12 +1,13 @@
 import { createContext , useReducer, useEffect } from "react";
 import reducer from '../reducers'
 import ThemeContext from '../context/theme'
-import { FETCH_USERS, SET_USER_COUNT} from '../utils/enums'
+import { FETCH_USERS, SET_USER_COUNT, SET_LOADING} from '../utils/enums'
 
 const initialState = {
   searchTerm: "",
   users: [],
-  userCount: 0
+  userCount: 0,
+  loading: true
 }
 const GlobalContext = createContext(initialState);
 export const GlobalContextProvider = props => {
@@ -25,6 +26,12 @@ export const GlobalContextProvider = props => {
             type: SET_USER_COUNT,
               payload: {
                 userCount: data.length,
+              }
+          });
+          dispatch({
+            type: SET_LOADING,
+              payload: {
+                loading: false,
               }
           });
         })

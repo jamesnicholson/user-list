@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css, keyframes } from 'styled-components'
 
 const style = {
   primaryColor: 'black',
@@ -9,14 +9,28 @@ const style = {
   normalFontSize: '1em',
   largeFontSize: '1.5em',
   extraLargeFontSize: '2em',
+  massiveLargeFontSize: '6em',
 };
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+
 
 export const title = css`
   font-size: ${style.extraLargeFontSize};
   color: ${style.primaryColor};
   text-shadow: 1px 1px ${style.secondaryColor};
   padding: 10px;
-  margin: 10px 5px;
+  max-width:600px;
+  margin: 10px auto;
 `
 export const card = css`
   display: flex;
@@ -91,4 +105,23 @@ export const userCount = css`
   font-size: ${style.smallFontSize};
   padding: 5px 0;
 `
+export const loaderRotate = css`
+  display: inline-block;
+  animation: ${rotate} 8s linear infinite;
+  padding: 20px;
+  font-size: ${style.massiveLargeFontSize};
+`;
+export const loadingPage = css`
+    text-align: center;
+    transition: opacity 1s;
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+    background: burlywood;
+    height: 100%;
+    top: 0px;
+`;
+export const appPage = css`
+    transition: opacity 2s;
+`;
 export default style
