@@ -1,25 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import GlobalContext from '../../context'
-import { search, searchBar } from '../../styles'
+import { search } from '../../styles'
 import { SET_SEARCH_TERM } from '../../utils/enums'
+import { useInput } from '../../utils/hooks'
 
 const SearchWrapper = styled.div`
   ${search}
 `
-const SearchBar = styled.input`
-  ${searchBar}
-`
-function useInput(){
-    const [value, setValue] = useState("");
-    const input = <SearchBar value={value} onChange={e => setValue(e.target.value)} type="text" />;
-    return [value, input];
-}
-
 function Search() {
     const [value, input] = useInput();
     const [state, dispatch] = useContext(GlobalContext);
-    const { users } = state;
+    const { userCount } = state;
     useEffect(() => {
         dispatch({
             type: SET_SEARCH_TERM,
@@ -29,6 +21,9 @@ function Search() {
           });
     },[value])
 
-    return <SearchWrapper>{input}</SearchWrapper>;
+    return  <SearchWrapper>
+              {input}
+              <div>Results: { userCount }</div>
+            </SearchWrapper>;
 }
 export default Search;

@@ -1,25 +1,30 @@
 import { createContext , useReducer, useEffect } from "react";
 import reducer from '../reducers'
 import ThemeContext from '../context/theme'
-import { FETCH_USERS } from '../utils/enums'
+import { FETCH_USERS, SET_USER_COUNT} from '../utils/enums'
 
 const initialState = {
   searchTerm:"",
-  users: []
+  users: [],
+  userCount: 0
 }
 const GlobalContext = createContext(initialState);
-
 export const GlobalContextProvider = props => {
     const [state, dispatch] = useReducer(reducer, initialState);
     useEffect(() => {
       fetch("https://jsonplaceholder.typicode.com/users")
       .then(x => x.json())
-      .then((data)=>{
-          console.log(data)
+      .then((data) => {
           dispatch({
             type: FETCH_USERS,
               payload: {
                 users: data,
+              }
+          });
+          dispatch({
+            type: SET_USER_COUNT,
+              payload: {
+                userCount: data.length,
               }
           });
         })

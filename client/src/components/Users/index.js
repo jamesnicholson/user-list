@@ -1,28 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import GlobalContext from '../../context'
 import User from './User'
+import { useSearch } from '../../utils/hooks'
+import { SET_USER_COUNT } from '../../utils/enums'
 
 
 function Users() {
-    const [searchResult, setSearchResult] = useState([]);
-    const [state, actions] = useContext(GlobalContext);
+    const [state, dispatch] = useContext(GlobalContext);
     const { users, searchTerm } = state;
-    const searchUsers = (searchTerm, users) => {
-        const term = searchTerm.toLowerCase();
-        const result =  users.filter((obj) =>
-            JSON.stringify(obj).toLowerCase().includes(term)
-        )
-        setSearchResult(result)
-    }
-     
-    useEffect(() => { 
-        searchUsers(searchTerm, users);
-    },[searchTerm]);
-
-    useEffect(() => {
-        setSearchResult(users)
-    },[users])
-
-    return searchResult.map((item, index)=><User key={index} user={item} />);
+    const search = useSearch(searchTerm, users);
+    useEffect(()=> {
+        console.log(search.length)
+        dispatch({
+            type: SET_USER_COUNT,
+              payload: {
+                userCount: search.length,
+              }
+          });
+    }, [searchTerm]);
+    return search.map((item, index)=><User key={index} user={item} />);
 }
 export default Users;
