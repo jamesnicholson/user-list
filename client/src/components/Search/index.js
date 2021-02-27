@@ -17,6 +17,7 @@ function Search() {
     const { userCount } = state;
 
     useEffect(() => {
+      inputRef.current.focus()
         dispatch({
             type: SET_SEARCH_TERM,
               payload: {
