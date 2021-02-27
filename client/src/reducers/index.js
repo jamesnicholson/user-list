@@ -1,4 +1,4 @@
-import { FETCH_USERS, SET_SEARCH_TERM, SET_USER_COUNT, SET_LOADING } from '../utils/enums'
+import { FETCH_USERS, SET_SEARCH_TERM, SET_USER_COUNT, SET_LOADING, SET_SCROLL_INDEX } from '../utils/enums'
 
 const fetchUsers = (payload, state) => {
     return {
@@ -27,6 +27,7 @@ const setLoading = (payload, state) => {
         loading: payload.loading
     };
 };
+
 const reducer = (state, action) => {
     switch(action.type){
         case FETCH_USERS :

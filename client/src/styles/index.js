@@ -22,8 +22,6 @@ const rotate = keyframes`
   }
 `;
 
-
-
 export const title = css`
   font-size: ${style.extraLargeFontSize};
   color: ${style.primaryColor};
@@ -113,7 +111,7 @@ export const loaderRotate = css`
 `;
 export const loadingPage = css`
     text-align: center;
-    transition: opacity 1s;
+    transition: opacity 2s;
     position: absolute;
     width: 100%;
     z-index: 9;

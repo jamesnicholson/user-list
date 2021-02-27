@@ -7,11 +7,12 @@ const initialState = {
   searchTerm: "",
   users: [],
   userCount: 0,
-  loading: true
+  loading: true,
 }
 const GlobalContext = createContext(initialState);
 export const GlobalContextProvider = props => {
     const [state, dispatch] = useReducer(reducer, initialState);
+
     useEffect(() => {
       fetch("https://jsonplaceholder.typicode.com/users")
       .then(x => x.json())
@@ -28,12 +29,14 @@ export const GlobalContextProvider = props => {
                 userCount: data.length,
               }
           });
-          dispatch({
-            type: SET_LOADING,
-              payload: {
-                loading: false,
-              }
-          });
+          setTimeout(() => {
+            dispatch({
+              type: SET_LOADING,
+                payload: {
+                  loading: false,
+                }
+            });
+          }, 1000);
         })
     },[])
   

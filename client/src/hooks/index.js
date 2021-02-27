@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef} from 'react'
+import React, { useState, useEffect, useRef, useContext} from 'react'
 import styled from 'styled-components'
+import GlobalContext from '../context'
 import { searchBar } from '../styles'
-import { ALPHANUMERIC_ONLY } from '../utils/enums'
+import { ALPHANUMERIC_ONLY, ARROWS_ONLY, SET_SCROLL_INDEX } from '../utils/enums'
 
 const SearchBar = styled.input`
   ${searchBar}
@@ -28,6 +29,7 @@ export const useInput = () => {
 };
 
 export const useKeypress = (key, action) => {
+    const [state, dispatch] = useContext(GlobalContext);
     useEffect(() => {
         function onKeyup(e) {
             switch(key){
@@ -45,7 +47,3 @@ export const useKeypress = (key, action) => {
     }, []);
 };
 
-export const useScroll = () => {
-    const section = document.querySelector( '#1' );
-    section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
-};
