@@ -15,4 +15,8 @@ Demo URL: http://161.35.115.185:3100/
 
 ## Extra Features
 - Keyboard Accessibility
-  - type anywhere on the screen,  it will automatically focus to the search bar and will perform a search.
+  - Type anywhere on the screen, it will automatically focus to the search bar and will perform a search.
+
+
+
+
